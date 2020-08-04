@@ -67,7 +67,7 @@ class configuration():
 cofg = configuration()
 para = open("para.txt", "r")
 words = para.read()
-top = ttk.TK()
+top = ttk.tK()
 
 top.attributes("-fullscreen", True)
 top.bind('<Escape>', top.attributes("-fullscreen", False))
