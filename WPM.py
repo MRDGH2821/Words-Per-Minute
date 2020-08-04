@@ -80,6 +80,7 @@ WPMFlash = tk.Frame(root)
 WPMFlash.pack()
 '''
 
-canvasFlash = tk.Canvas(root, bg='Black')
+canvasFlash = tk.Canvas(root, bg='Black', width=root.winfo_screenwidth(
+), height=root.winfo_screenheight())
 canvasFlash.pack()
 root.mainloop()
