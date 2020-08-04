@@ -43,7 +43,7 @@ class configuration():
         # datetime object containing current date and time
 
         # dd_mm_YY__H_M_S
-        dt_string = "config" + now.strftime("%d_%m_%Y__%H_%M_%S")
+        dt_string = now.strftime("%d_%m_%Y__%H_%M_%S")
         FontSize = int(input("Enter Font size: "))
         WPM = int(input("Enter Words per Minute: "))
         usrCFGfile = str("config" + dt_string + ".cfg")
