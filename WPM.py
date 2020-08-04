@@ -20,6 +20,7 @@ class configuration():
             file = open("default.cfg", "w")
             defaults = ["FontSize=50\n", "WordsPerMinute=30"]
             file.writelines(defaults)
+            file.close()
         finally:
             print("Words Per Minute!\n")
             print("0. Use Default Config?")
@@ -29,6 +30,7 @@ class configuration():
                 config = open("default.cfg", "r")
                 FontSize = config.readline()[-2:]
                 WPM = config.readline()[-2:]
+                config.close()
             else:
                 FontSize, WPM = self.UserConfiguration()
         para = open("para.txt", "w")
@@ -50,6 +52,7 @@ class configuration():
         userconfig.writelines("FontSize=" + str(FontSize))
         userconfig.writelines("WordsPerMinute=" + str(WPM))
         print("User config saved in " + usrCFGfile)
+        userconfig.close()
         return (FontSize, WPM)
 
     def GetFontSize(self):
