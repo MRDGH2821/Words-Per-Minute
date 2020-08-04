@@ -74,8 +74,11 @@ root.bind("<F11>", lambda event: root.attributes("-fullscreen",
                                                  not root.attributes("-fullscreen")))
 root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
 
+'''
 # WPMFlash = FullScreenApp(top)
-WPMFlash = tk.Frame(root, text="Sample", bg="black")
+WPMFlash = tk.Frame(root)
 WPMFlash.pack()
+'''
 
+canvasFlash = tk.Canvas(root, bg='Black')
 root.mainloop()
