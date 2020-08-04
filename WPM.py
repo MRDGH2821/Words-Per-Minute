@@ -1,7 +1,7 @@
 from datetime import datetime
 from time import sleep
 import TKinter as ttk
-import webbrowser
+import os
 
 
 class configuration():
@@ -31,7 +31,7 @@ class configuration():
             else:
                 FontSize, WPM = self.UserConfiguration()
         para = open("para.txt", "w")
-        webbrowser.open("para.txt")
+        os.startfile("para.txt")
         print("Write your words in para.txt\n\n")
         para.close()
 
@@ -61,4 +61,5 @@ class configuration():
 
 
 # This code snippet now flashes the words per minute.
-open()
+para = open("para.txt", "r")
+words = para.read()
