@@ -19,7 +19,16 @@ class configuration():
             file.writelines(["FontSize=50\n", "WordsPerMinute=30"])
         finally:
             print("Words Per Minute!\n")
-            print("1. Use Default Config?")
+            print("0. Use Default Config?")
+            print("1. Make Custom Config?")
+            choice = int(input("Enter Choice (0/1): "))
+            if not choice:
+                config = open("default.cfg", "r")
+                FontSize = config.readline()[-2:]
+                WPM = config.readline()[-2:]
+            else:
+                FontSize, WPM = self.UserConfiguration()
+        return (FontSize, WPM)
 
     def UserConfiguration():
 
@@ -35,3 +44,6 @@ class configuration():
         userconfig.writeline("FontSize=" + str(FontSize))
         userconfig.writeline("WordsPerMinute=" + str(WPM))
         print("User config saved in " + usrCFGfile)
+        return (FontSize, WPM)
+
+    def FontSizeReturn
