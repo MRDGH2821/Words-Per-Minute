@@ -33,10 +33,24 @@ class configuration():
                 config.close()
             else:
                 FontSize, WPM = self.UserConfiguration()
-        para = open("para.txt", "w")
-        os.startfile("para.txt")
-        print("Write your words in para.txt\n\n")
-        para.close()
+
+        try:
+            para = open("para.txt", "r")
+            if not para:
+                raise FileNotFoundError
+            else:
+                choice = 0
+                choice = int(
+                    input("\n0. Use existing para?\n1. Make new para? \nEnter choice: "))
+                if choice:
+                    raise FileNotFoundError
+                else:
+                    para.close()
+        except FileNotFoundError:
+            para = open("para.txt", "w")
+            os.startfile("para.txt")
+            print("Write your words in para.txt\n\n")
+            para.close()
         print("Use <F11> to enter into Fullscreen, <Esc> to exit fullscreen in the new window created in background\n ")
 
     def UserConfiguration(self):
