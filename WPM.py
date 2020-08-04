@@ -37,7 +37,7 @@ class configuration():
         os.startfile("para.txt")
         print("Write your words in para.txt\n\n")
         para.close()
-        print("Use <F11> to enter into Fullscreen, <Esc> to exit fullscreen\n ")
+        print("Use <F11> to enter into Fullscreen, <Esc> to exit fullscreen in the new window created in background\n ")
 
     def UserConfiguration(self):
 
@@ -64,22 +64,6 @@ class configuration():
 
 
 # This code snippet now flashes the words per minute.
-"""
-class FullScreenApp(object):
-    def __init__(self, master, **kwargs):
-        self.master = master
-        pad = 3
-        self._geom = '200x200+0+0'
-        master.geometry("{0}x{1}+0+0".format(
-            master.winfo_screenwidth() - pad, master.winfo_screenheight() - pad))
-        master.bind('<Escape>', self.toggle_geom)
-
-    def toggle_geom(self, event):
-        geom = self.master.winfo_geometry()
-        print(geom, self._geom)
-        self.master.geometry(self._geom)
-        self._geom = geom
-"""
 
 cofg = configuration()
 para = open("para.txt", "r")
@@ -89,13 +73,9 @@ root.attributes("-fullscreen", True)
 root.bind("<F11>", lambda event: root.attributes("-fullscreen",
                                                  not root.attributes("-fullscreen")))
 root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
-"""
-top.geometry()
-top.attributes("-fullscreen", True)
-top.bind('<Escape>', top.attributes("-fullscreen", False))
-"""
+
 # WPMFlash = FullScreenApp(top)
-WPMFlash = tk.Frame(root)
+WPMFlash = tk.Frame(root, bg="black")
 WPMFlash.pack()
 
 root.mainloop()
