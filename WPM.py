@@ -30,7 +30,7 @@ class configuration():
                 FontSize, WPM = self.UserConfiguration()
         return (FontSize, WPM)
 
-    def UserConfiguration():
+    def UserConfiguration(self):
 
         now = datetime.now()
         # datetime object containing current date and time
@@ -46,4 +46,8 @@ class configuration():
         print("User config saved in " + usrCFGfile)
         return (FontSize, WPM)
 
-    def FontSizeReturn
+    def GetFontSize(self):
+        return self.FontSize
+
+    def getWPM(self):
+        return self.WPM
