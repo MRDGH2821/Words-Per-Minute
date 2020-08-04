@@ -1,5 +1,6 @@
 from datetime import datetime
 from time import sleep
+import TKinter as ttk
 
 
 class configuration():
@@ -28,6 +29,11 @@ class configuration():
                 WPM = config.readline()[-2:]
             else:
                 FontSize, WPM = self.UserConfiguration()
+            para = open("para.txt", "w")
+            para.close()
+
+        print("Write your words in para.txt\n\n")
+
         return (FontSize, WPM)
 
     def UserConfiguration(self):
@@ -51,3 +57,6 @@ class configuration():
 
     def getWPM(self):
         return self.WPM
+
+
+# This code snippet now flashes the words per minute.
