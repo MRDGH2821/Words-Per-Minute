@@ -81,4 +81,5 @@ WPMFlash.pack()
 '''
 
 canvasFlash = tk.Canvas(root, bg='Black')
+canvasFlash.pack()
 root.mainloop()
