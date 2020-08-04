@@ -18,7 +18,8 @@ class configuration():
             print("Generating default config...")
             sleep(1)
             file = open("default.cfg", "w")
-            file.writelines(["FontSize=50\n", "WordsPerMinute=30"])
+            defaults = ["FontSize=50\n", "WordsPerMinute=30"]
+            file.writelines(defaults)
         finally:
             print("Words Per Minute!\n")
             print("0. Use Default Config?")
@@ -34,8 +35,6 @@ class configuration():
         os.startfile("para.txt")
         print("Write your words in para.txt\n\n")
         para.close()
-
-        return (FontSize, WPM)
 
     def UserConfiguration(self):
 
