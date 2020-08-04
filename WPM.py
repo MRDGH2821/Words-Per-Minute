@@ -16,7 +16,7 @@ class configuration():
             raise FileNotFoundError
         except FileNotFoundError:
             print("Generating default config...")
-            sleep(1)
+            # sleep(1)
             file = open("default.cfg", "w")
             defaults = ["FontSize=50\n", "WordsPerMinute=30"]
             file.writelines(defaults)
@@ -75,7 +75,7 @@ root.bind("<F11>", lambda event: root.attributes("-fullscreen",
 root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
 
 # WPMFlash = FullScreenApp(top)
-WPMFlash = tk.Frame(root, bg="black")
+WPMFlash = tk.Frame(root, text="Sample" bg="black")
 WPMFlash.pack()
 
 root.mainloop()
