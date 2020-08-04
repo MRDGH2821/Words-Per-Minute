@@ -37,6 +37,7 @@ class configuration():
         os.startfile("para.txt")
         print("Write your words in para.txt\n\n")
         para.close()
+        print("Use <F11> to enter into Fullscreen, <Esc> to exit fullscreen\n ")
 
     def UserConfiguration(self):
 
