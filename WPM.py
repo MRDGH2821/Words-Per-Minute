@@ -63,3 +63,7 @@ class configuration():
 # This code snippet now flashes the words per minute.
 para = open("para.txt", "r")
 words = para.read()
+top = ttk.TK()
+
+top.attributes("-fullscreen", True)
+top.bind('<Escape>', top.attributes("-fullscreen", False))
