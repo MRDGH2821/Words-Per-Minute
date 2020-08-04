@@ -1,6 +1,6 @@
 from datetime import datetime
 from time import sleep
-import TKinter as ttk
+import tkinter as ttk
 import os
 
 
@@ -61,6 +61,8 @@ class configuration():
 
 
 # This code snippet now flashes the words per minute.
+
+cofg = configuration()
 para = open("para.txt", "r")
 words = para.read()
 top = ttk.TK()
