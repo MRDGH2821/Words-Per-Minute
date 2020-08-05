@@ -53,7 +53,7 @@ class configuration():
             os.startfile("para.txt")
             print("Write your words in para.txt\n\n")
             para.close()
-        print("Use <F11> to enter into Fullscreen, <Esc> to exit fullscreen in the new window created in background\n ")
+        print("Use <F11> to enter into Fullscreen or to exit fullscreen in the new window created in background\n ")
 
     def UserConfiguration(self):
 
@@ -101,15 +101,16 @@ WPS = WordPerSecond()
 root = tk.Tk()
 root.attributes("-fullscreen", True)
 root.bind("<F11>", lambda event: root.attributes("-fullscreen", not root.attributes("-fullscreen")))
-root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
+root.bind("<F11>", lambda event: root.attributes("-fullscreen", False))
 
 
 canvasFlash = tk.Canvas(root, bg='Black', width=root.winfo_screenwidth(), height=root.winfo_screenheight())
 canvasFlash.pack()
-wordflashed = canvasFlash.create_text(root.winfo_screenheight(), root.winfo_screenwidth(), anchor="center",
-                                      fill="white", font="Times 20", text="Starting in 5 sec!")
+wordID = canvasFlash.create_text(root.winfo_screenheight(), root.winfo_screenwidth(), anchor="center",
+                                 fill="white", font="Times 20", text="Starting in 5 sec!")
 sleep(5)
 for word in words:
-    canvasFlash.itemconfigure(wordflashed, text=word)
+    canvasFlash.itemconfigure(wordID, text=word)
+    canvasFlash.insert(wordID, cofg.GetFontSize(), word)
     sleep(WPS)
 root.mainloop()
