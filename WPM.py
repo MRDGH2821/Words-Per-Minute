@@ -102,17 +102,18 @@ root = tk.Tk()
 root.attributes("-fullscreen", True)
 root.bind("<F11>", lambda event: root.attributes("-fullscreen", not root.attributes("-fullscreen")))
 root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
+canvasFlash = tk.Canvas(root, bg='Black', width=root.winfo_screenwidth(), height=root.winfo_screenheight())
+canvasFlash.pack()
 
-
-for word in words:
-    canvasFlash = tk.Canvas(root, bg='Black', width=root.winfo_screenwidth(), height=root.winfo_screenheight())
-    canvasFlash.pack()
+for w in words:
+    word = tk.StringVar(root, value=str(w))
     wordID = canvasFlash.create_text(root.winfo_screenwidth() / 2, root.winfo_screenheight() / 2,
                                      anchor="center", fill="white", font="Times " + str(cofg.GetFontSize()), text=word)
     canvasFlash.after(int(WPS), canvasFlash.update_idletasks())
     # canvasFlash.destroy()
     # canvasFlash.update_idletasks()
     # canvasFlash.config(text=str(word))
+
 '''
 # , text="Starting in 5 sec!"
 # sleep(5) commented for faster testing.
