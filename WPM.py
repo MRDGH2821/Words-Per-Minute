@@ -109,7 +109,7 @@ canvasFlash.pack()
 for word in words:
     wordID = canvasFlash.create_text(root.winfo_screenwidth() / 2, root.winfo_screenheight() / 2,
                                      anchor="center", fill="white", font="Times " + str(cofg.GetFontSize()), text=word)
-    canvasFlash.after(int(WPS) * 1000, canvasFlash.destroy)
+    canvasFlash.after(int(WPS) * 1000, canvasFlash.update_idletasks())
     # canvasFlash.config(text=str(word))
 '''
 # , text="Starting in 5 sec!"
