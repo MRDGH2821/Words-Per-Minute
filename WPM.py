@@ -1,7 +1,7 @@
+import os
+import tkinter as tk
 from datetime import datetime
 from time import sleep
-import tkinter as tk
-import os
 
 
 class configuration():
