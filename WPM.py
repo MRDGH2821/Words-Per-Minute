@@ -85,11 +85,18 @@ cofg = configuration()
 para = open("para.txt", "r")
 words = para.read()
 
-
+'''
 def nextword():
     for word in words:
-        yield word
+        return word
+'''
 
+
+def WordPerSecond():
+    return cofg.getWPM() / 60
+
+
+WPS = WordPerSecond()
 
 root = tk.Tk()
 root.attributes("-fullscreen", True)
@@ -99,5 +106,8 @@ root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
 
 canvasFlash = tk.Canvas(root, bg='Black', width=root.winfo_screenwidth(), height=root.winfo_screenheight())
 canvasFlash.pack()
-wordflashed = canvasFlash.create_text(root.winfo_screenheight(), root.winfo_screenwidth(), fill="white", font="Times 20", text=nextword())
+wordflashed = canvasFlash.create_text(root.winfo_screenheight(), root.winfo_screenwidth(), fill="white", font="Times 20")
+for word in words:
+    canvasFlash.itemconfigure(wordflashed, text=word)
+    sleep(WPS)
 root.mainloop()
