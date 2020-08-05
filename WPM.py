@@ -18,7 +18,7 @@ class configuration():
                 raise FileNotFoundError
         except FileNotFoundError:
             print("Generating default config...")
-            # sleep(1)
+            sleep(1)
             file = open("default.cfg", "w")
             defaults = ["FontSize=50\n", "WordsPerMinute=30"]
             file.writelines(defaults)
