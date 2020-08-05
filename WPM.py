@@ -11,9 +11,11 @@ class configuration():
         WPM = 0
         try:
             config = open("default.cfg", "r")
-            FontSize = config.readline()[-2:]
-            WPM = config.readline()[-2:]
-            raise FileNotFoundError
+            if config:
+                FontSize = config.readline()[-2:]
+                WPM = config.readline()[-2:]
+            else:
+                raise FileNotFoundError
         except FileNotFoundError:
             print("Generating default config...")
             # sleep(1)
