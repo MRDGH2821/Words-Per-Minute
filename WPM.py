@@ -53,7 +53,7 @@ class configuration():
             os.startfile("para.txt")
             print("Write your words in para.txt\n\n")
             para.close()
-        print("Use <F11> to enter into Fullscreen, <Esc> to exit fullscreen in the new window created in background\n ")
+        print("Use <F11> to enter into Fullscreen, <Esc> to exit fullscreen, <F1> to exit; in the new window created in background\n ")
 
     def UserConfiguration(self):
 
@@ -102,12 +102,19 @@ root = tk.Tk()
 root.attributes("-fullscreen", True)
 root.bind("<F11>", lambda event: root.attributes("-fullscreen", not root.attributes("-fullscreen")))
 root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
+root.bind("<F1>", lambda event: exit(0))
 
-labelFlash = tk.Label(root, bg='Black', width=root.winfo_screenwidth(), height=root.winfo_screenheight(), anchor="center", text="Sample", fg="White")
+w = tk.StringVar()
+
+labelFlash = tk.Label(root, bg='Black', width=root.winfo_screenwidth(), height=root.winfo_screenheight(),
+                      anchor="center", text="Sample", fg="White", font="Times " + str(cofg.GetFontSize()), textvariable=w)
 labelFlash.pack()
 for word in words:
+    w.set(word)
+"""
     labelFlash["text"] = word
-    labelFlash.after(int(WPS), labelFlash.update_idletasks())
+    labelFlash.after(int(WPS))  # labelFlash.update_idletasks())
+"""
 
 '''
 canvasFlash = tk.Canvas(root, bg='Black', width=root.winfo_screenwidth(), height=root.winfo_screenheight())
