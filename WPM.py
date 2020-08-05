@@ -90,11 +90,12 @@ root.bind("<F11>", lambda event: root.attributes("-fullscreen",
                                                  not root.attributes("-fullscreen")))
 root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
 
-'''
-# WPMFlash = FullScreenApp(top)
-WPMFlash = tk.Frame(root)
-WPMFlash.pack()
-'''
+
+for word in words:
+    s = tk.StringVar(root, word)
+    lbl = tk.Label(root, compound='center', textvariable=s)
+    lbl.pack()
+    root.after(2000)
 
 canvasFlash = tk.Canvas(root, bg='Black', width=root.winfo_screenwidth(
 ), height=root.winfo_screenheight())
