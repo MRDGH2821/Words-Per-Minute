@@ -83,7 +83,7 @@ class configuration():
 
 cofg = configuration()
 para = open("para.txt", "r")
-words = para.read()
+words = [str(x) for x in para.read()]
 
 '''
 def nextword():
@@ -109,7 +109,8 @@ for word in words:
     canvasFlash.pack()
     wordID = canvasFlash.create_text(root.winfo_screenwidth() / 2, root.winfo_screenheight() / 2,
                                      anchor="center", fill="white", font="Times " + str(cofg.GetFontSize()), text=word)
-    canvasFlash.after(int(WPS) * 1000, canvasFlash.update_idletasks())
+    canvasFlash.after(int(WPS), canvasFlash.update_idletasks())
+    # canvasFlash.destroy()
     # canvasFlash.update_idletasks()
     # canvasFlash.config(text=str(word))
 '''
