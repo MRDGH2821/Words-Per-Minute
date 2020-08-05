@@ -84,20 +84,20 @@ class configuration():
 cofg = configuration()
 para = open("para.txt", "r")
 words = para.read()
+
+
+def nextword():
+    for word in words:
+        yield word
+
+
 root = tk.Tk()
 root.attributes("-fullscreen", True)
-root.bind("<F11>", lambda event: root.attributes("-fullscreen",
-                                                 not root.attributes("-fullscreen")))
+root.bind("<F11>", lambda event: root.attributes("-fullscreen", not root.attributes("-fullscreen")))
 root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
 
 
-for word in words:
-    s = tk.StringVar(root, word)
-    lbl = tk.Label(root, compound='center', textvariable=s)
-    lbl.pack()
-    root.after(2000)
-
-canvasFlash = tk.Canvas(root, bg='Black', width=root.winfo_screenwidth(
-), height=root.winfo_screenheight())
+canvasFlash = tk.Canvas(root, bg='Black', width=root.winfo_screenwidth(), height=root.winfo_screenheight())
 canvasFlash.pack()
+wordflashed = canvasFlash.create_text(root.winfo_screenheight(), root.winfo_screenwidth(), fill="white", font="Times 20", text=nextword())
 root.mainloop()
