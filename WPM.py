@@ -85,11 +85,10 @@ cofg = configuration()
 para = open("para.txt", "r")
 words = para.read()
 
-'''
+
 def nextword():
     for word in words:
         return word
-'''
 
 
 def WordPerSecond():
@@ -108,9 +107,10 @@ canvasFlash = tk.Canvas(root, bg='Black', width=root.winfo_screenwidth(), height
 canvasFlash.pack()
 wordID = canvasFlash.create_text(root.winfo_screenwidth() / 2, root.winfo_screenheight() / 2, anchor="center", fill="white", font="Times 20")
 # , text="Starting in 5 sec!"
-sleep(5)
-for word in words:
-    canvasFlash.itemconfigure(wordID, text=word)
-    # canvasFlash.insert(wordID, cofg.GetFontSize(), word)
-    sleep(WPS)
+# sleep(5) commented for faster testing.
+# for word in words:
+canvasFlash.itemconfigure(wordID, text=nextword())
+# canvasFlash.insert(wordID, cofg.GetFontSize(), word)
+canvasFlash.after(WPS, nextword())
+# sleep(WPS)
 root.mainloop()
