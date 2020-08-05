@@ -88,7 +88,7 @@ words = para.read()
 
 def nextword():
     for word in words:
-        return word
+        yield word
 
 
 def WordPerSecond():
