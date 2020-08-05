@@ -106,7 +106,8 @@ root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
 
 canvasFlash = tk.Canvas(root, bg='Black', width=root.winfo_screenwidth(), height=root.winfo_screenheight())
 canvasFlash.pack()
-wordflashed = canvasFlash.create_text(root.winfo_screenheight(), root.winfo_screenwidth(), fill="white", font="Times 20")
+wordflashed = canvasFlash.create_text(root.winfo_screenheight(), root.winfo_screenwidth(), fill="white", font="Times 20", text="Starting in 5 sec!")
+sleep(5)
 for word in words:
     canvasFlash.itemconfigure(wordflashed, text=word)
     sleep(WPS)
