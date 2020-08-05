@@ -106,10 +106,11 @@ root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
 
 canvasFlash = tk.Canvas(root, bg='Black', width=root.winfo_screenwidth(), height=root.winfo_screenheight())
 canvasFlash.pack()
-wordID = canvasFlash.create_text(root.winfo_screenwidth() / 2, root.winfo_screenheight() / 2,
-                                 anchor="center", fill="white", font="Times 20", text="Hello world")
+for word in words:
+    wordID = canvasFlash.create_text(root.winfo_screenwidth() / 2, root.winfo_screenheight() / 2,
+                                     anchor="center", fill="white", font="Times 20", text=word)
 
-
+    # canvasFlash.config(text=str(word))
 '''
 # , text="Starting in 5 sec!"
 # sleep(5) commented for faster testing.
