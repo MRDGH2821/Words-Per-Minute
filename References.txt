@@ -6,3 +6,4 @@ https://www.bing.com/search?q=how+to+write+text+in+tkinter+canvas&cvid=ed23ac845
 https://python.hotexamples.com/examples/tkinter/Canvas/create_text/python-canvas-create_text-method-examples.html
 https://stackoverflow.com/questions/14423959/tkinter-inserting-text-into-canvas-windows
 https://www.geeksforgeeks.org/getting-screens-height-and-width-using-tkinter-python/
+https://stackoverflow.com/questions/52792254/canvas-text-update-python3-tkinter
