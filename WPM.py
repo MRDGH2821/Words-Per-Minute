@@ -102,7 +102,7 @@ root = tk.Tk()
 root.attributes("-fullscreen", True)
 root.bind("<F11>", lambda event: root.attributes("-fullscreen", not root.attributes("-fullscreen")))
 root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
-root.bind("<F1>", lambda event: exit(0))
+root.bind("<F1>", lambda event: os.exit(0))
 
 w = tk.StringVar()
 
@@ -111,6 +111,7 @@ labelFlash = tk.Label(root, bg='Black', width=root.winfo_screenwidth(), height=r
 labelFlash.pack()
 for word in words:
     w.set(word)
+    labelFlash.config(text=word)
 """
     labelFlash["text"] = word
     labelFlash.after(int(WPS))  # labelFlash.update_idletasks())
