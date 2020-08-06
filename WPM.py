@@ -20,7 +20,7 @@ class configuration():
             print("Generating default config...")
             sleep(1)
             file = open("default.cfg", "w")
-            defaults = ["FontSize=50\n", "WordsPerMinute=30"]
+            defaults = ["FontSize=50\n", "WordsPerMinute=100"]
             file.writelines(defaults)
             file.close()
         finally:
