@@ -12,8 +12,8 @@ class configuration():
         try:
             config = open("default.cfg", "r")
             if config:
-                self.FontSize = config.readline()[-3:-1]
-                self.WPM = config.readline()[-3:-1]
+                self.FontSize = config.readline().split("=")[1][:-2]
+                self.WPM = config.readline().split("=")[1][:-2]
             else:
                 raise FileNotFoundError
         except FileNotFoundError:
@@ -30,8 +30,8 @@ class configuration():
             choice = int(input("Enter Choice (0/1): "))
             if not choice:
                 config = open("default.cfg", "r")
-                self.FontSize = config.readline()[-3:-1]
-                self.WPM = config.readline()[-3:-1]
+                self.FontSize = config.readline().split("=")[1][:-2]
+                self.WPM = config.readline().split("=")[1][:-2]
                 config.close()
             else:
                 self.FontSize, self.WPM = self.UserConfiguration()
