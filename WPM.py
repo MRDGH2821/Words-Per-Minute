@@ -76,7 +76,7 @@ class configuration():
         return self.FontSize
 
     def getWPM(self):
-        return self.WPM
+        return int(self.WPM)
 
 
 # This code snippet now flashes the words per minute.
@@ -84,12 +84,6 @@ class configuration():
 cofg = configuration()
 para = open("para.txt", "r")
 words = [str(x) for x in para.read().split()]
-print(words)
-'''
-def nextword():
-    for word in words:
-        yield word
-'''
 
 
 def WordPerSecond():
@@ -119,41 +113,8 @@ def update():
     w.set(words[indx])
     labelFlash.config(text=words[indx])
     indx += 1
-    root.after(500, update)
+    root.after(int(WPS), update)
 
 
 update()
 root.mainloop()
-
-'''
-for word in words:
-    w.set(word)
-    labelFlash.config(text=word)
-    '''
-"""
-    labelFlash["text"] = word
-    labelFlash.after(int(WPS))  # labelFlash.update_idletasks())
-"""
-
-'''
-canvasFlash = tk.Canvas(root, bg='Black', width=root.winfo_screenwidth(), height=root.winfo_screenheight())
-canvasFlash.pack()
-
-for w in words:
-    word = tk.StringVar(canvasFlash, value=str(w))
-    wordID = canvasFlash.create_text(root.winfo_screenwidth() / 2, root.winfo_screenheight() / 2,
-                                     anchor="center", fill="white", font="Times " + str(cofg.GetFontSize()), text=word)
-    canvasFlash.after(int(WPS), canvasFlash.update_idletasks())
-    # canvasFlash.destroy()
-    # canvasFlash.update_idletasks()
-    # canvasFlash.config(text=str(word))
-'''
-'''
-# , text="Starting in 5 sec!"
-# sleep(5) commented for faster testing.
-# for word in words:
-canvasFlash.itemconfigure(wordID, text=nextword())
-# canvasFlash.insert(wordID, cofg.GetFontSize(), word)
-canvasFlash.after(WPS, nextword())
-# sleep(WPS)
-'''
