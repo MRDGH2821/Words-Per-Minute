@@ -30,8 +30,8 @@ class configuration():
             choice = int(input("Enter Choice (0/1): "))
             if not choice:
                 config = open("default.cfg", "r")
-                FontSize = config.readline()[-2:]
-                WPM = config.readline()[-2:]
+                self.FontSize = config.readline()[-2:]
+                self.WPM = config.readline()[-2:]
                 config.close()
             else:
                 FontSize, WPM = self.UserConfiguration()
@@ -86,11 +86,11 @@ para = open("para.txt", "r")
 words = [str(x) for x in para.read().split()]
 
 
-def WordPerSecond():
-    return cofg.getWPM() / 60
+def Miliseconds_per_word():
+    return 60000 / cofg.getWPM()
 
 
-WPS = WordPerSecond()
+MPW = Miliseconds_per_word()
 
 root = tk.Tk()
 root.attributes("-fullscreen", True)
@@ -113,7 +113,7 @@ def update():
     w.set(words[indx])
     labelFlash.config(text=words[indx])
     indx += 1
-    root.after(int(WPS), update)
+    root.after(int(MPW), update)
 
 
 update()
