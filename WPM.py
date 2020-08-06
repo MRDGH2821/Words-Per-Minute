@@ -12,8 +12,8 @@ class configuration():
         try:
             config = open("default.cfg", "r")
             if config:
-                FontSize = config.readline()[-2:]
-                WPM = config.readline()[-2:]
+                self.FontSize = config.readline()[-3:-1]
+                self.WPM = config.readline()[-3:-1]
             else:
                 raise FileNotFoundError
         except FileNotFoundError:
@@ -30,11 +30,11 @@ class configuration():
             choice = int(input("Enter Choice (0/1): "))
             if not choice:
                 config = open("default.cfg", "r")
-                self.FontSize = config.readline()[-2:]
-                self.WPM = config.readline()[-2:]
+                self.FontSize = config.readline()[-3:-1]
+                self.WPM = config.readline()[-3:-1]
                 config.close()
             else:
-                FontSize, WPM = self.UserConfiguration()
+                self.FontSize, self.WPM = self.UserConfiguration()
 
         try:
             para = open("para.txt", "r")
@@ -53,7 +53,7 @@ class configuration():
             os.startfile("para.txt")
             print("Write your words in para.txt\n\n")
             para.close()
-        print("Use <F11> to enter into Fullscreen, <Esc> to exit fullscreen, <F1> to exit; in the new window created in background\n ")
+        print("Use <Escape>, <F11> to manipulate the window's fullscreen properties!\n")
 
     def UserConfiguration(self):
 
