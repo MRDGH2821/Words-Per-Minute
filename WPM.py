@@ -83,8 +83,8 @@ class configuration():
 
 cofg = configuration()
 para = open("para.txt", "r")
-words = [str(x) for x in para.read()]
-
+words = [str(x) for x in para.read().split()]
+print(words)
 '''
 def nextword():
     for word in words:
