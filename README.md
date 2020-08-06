@@ -1,16 +1,17 @@
 # Word Per Minute!
- This program lets you flash a paragraph, word by word; in full screen!
+ This program lets you display a paragraph, word by word; in full screen!
 
 In simple words -
 
-User has given a paragraph.
+User inputs paragraph.
+User inputs parameters like Speed of words being displayed & Font Size
 
-In a black background, I have to show them word by word, the whole paragraph.
+The program will display the words present in paragraph according to the speed set by user.
 
-What it will do is, it will display -
+It will display something like this -
 
-first word <some delay, first word invisible>
+first word <some delay then first word invisible>
 
-second word <some delay, second word invisible>
+second word <some delay then second word invisible>
 
 So on...
