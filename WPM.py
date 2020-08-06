@@ -1,41 +1,14 @@
 import os
 import tkinter as tk
-from datetime import datetime
-from time import sleep
 
 
 class configuration():
-
     def __init__(self):
         self.FontSize = 0
-        self.WPM = 0
-        try:
-            config = open("default.cfg", "r")
-            if config:
-                FontSize = config.readline()[-2:]
-                WPM = config.readline()[-2:]
-            else:
-                raise FileNotFoundError
-        except FileNotFoundError:
-            print("Generating default config...")
-            sleep(1)
-            file = open("default.cfg", "w")
-            defaults = ["FontSize=50\n", "WordsPerMinute=30"]
-            file.writelines(defaults)
-            file.close()
-        finally:
-            print("Words Per Minute!\n")
-            print("0. Use Default Config?")
-            print("1. Make Custom Config?")
-            choice = int(input("Enter Choice (0/1): "))
-            if not choice:
-                config = open("default.cfg", "r")
-                FontSize = config.readline()[-2:]
-                WPM = config.readline()[-2:]
-                config.close()
-            else:
-                FontSize, WPM = self.UserConfiguration()
-
+        self.WPS = 0
+        print("Words Per Minute!\n")
+        print("\nUse <Escape> or <F11> to manipulate the window's fullscreen properties!\n\n")
+        self.FontSize, self.WPS = self.UserConfiguration()
         try:
             para = open("para.txt", "r")
             if not para:
@@ -53,73 +26,51 @@ class configuration():
             os.startfile("para.txt")
             print("Write your words in para.txt\n\n")
             para.close()
-        print("Use <F11> to enter into Fullscreen, <Esc> to exit fullscreen in the new window created in background\n ")
 
     def UserConfiguration(self):
-
-        now = datetime.now()
-        # datetime object containing current date and time
-
-        # dd_mm_YY__H_M_S
-        dt_string = now.strftime("%d_%m_%Y__%H_%M_%S")
-        FontSize = int(input("Enter Font size: "))
-        WPM = int(input("Enter Words per Minute: "))
-        usrCFGfile = str("config_" + dt_string + ".cfg")
-        userconfig = open(usrCFGfile, "w")
-        userconfig.writelines("FontSize=" + str(FontSize))
-        userconfig.writelines("WordsPerMinute=" + str(WPM))
-        print("User config saved in " + usrCFGfile)
-        userconfig.close()
-        return (FontSize, WPM)
+        self.FontSize = int(input("Enter Font size (100 recommended): "))
+        self.WPS = int(input("Enter Words per Second (Higher the number, faster the words display): "))
+        return (self.FontSize, self.WPS)
 
     def GetFontSize(self):
-        return self.FontSize
+        return int(self.FontSize)
 
-    def getWPM(self):
-        return self.WPM
+    def getWPS(self):
+        return int(self.WPS)
 
 
 # This code snippet now flashes the words per minute.
-
 cofg = configuration()
 para = open("para.txt", "r")
-words = [str(x) for x in para.read()]
-
-'''
-def nextword():
-    for word in words:
-        yield word
-'''
+words = [str(x) for x in para.read().split()]
 
 
-def WordPerSecond():
-    return cofg.getWPM() / 60
+def Miliseconds_per_word():
+    return 1000 / cofg.getWPS()
 
 
-WPS = WordPerSecond()
-
+MPW = Miliseconds_per_word()
 root = tk.Tk()
 root.attributes("-fullscreen", True)
 root.bind("<F11>", lambda event: root.attributes("-fullscreen", not root.attributes("-fullscreen")))
 root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
+root.bind("<F1>", lambda event: os.exit(0))
+w = tk.StringVar()
+labelFlash = tk.Label(root, bg='Black', width=root.winfo_screenwidth(), height=root.winfo_screenheight(),
+                      anchor="center", text="Sample", fg="White", font="Times " + str(cofg.GetFontSize()), textvariable=w)
+labelFlash.pack()
+indx = 0
 
 
-for word in words:
-    canvasFlash = tk.Canvas(root, bg='Black', width=root.winfo_screenwidth(), height=root.winfo_screenheight())
-    canvasFlash.pack()
-    wordID = canvasFlash.create_text(root.winfo_screenwidth() / 2, root.winfo_screenheight() / 2,
-                                     anchor="center", fill="white", font="Times " + str(cofg.GetFontSize()), text=word)
-    canvasFlash.after(int(WPS), canvasFlash.update_idletasks())
-    # canvasFlash.destroy()
-    # canvasFlash.update_idletasks()
-    # canvasFlash.config(text=str(word))
-'''
-# , text="Starting in 5 sec!"
-# sleep(5) commented for faster testing.
-# for word in words:
-canvasFlash.itemconfigure(wordID, text=nextword())
-# canvasFlash.insert(wordID, cofg.GetFontSize(), word)
-canvasFlash.after(WPS, nextword())
-# sleep(WPS)
-'''
+def update():
+    global indx
+    if indx >= len(words):
+        indx = 0
+    w.set(words[indx])
+    labelFlash.config(text=words[indx])
+    indx += 1
+    root.after(int(MPW), update)
+
+
+update()
 root.mainloop()
