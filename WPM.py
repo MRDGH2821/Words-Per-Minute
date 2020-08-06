@@ -9,6 +9,7 @@ class configuration():
     def __init__(self):
         self.FontSize = 0
         self.WPM = 0
+        """
         try:
             config = open("default.cfg", "r")
             if config:
@@ -20,11 +21,12 @@ class configuration():
             print("Generating default config...")
             sleep(1)
             file = open("default.cfg", "w")
-            defaults = ["FontSize=50\n", "WordsPerMinute=100"]
+            defaults = ["FontSize=1000\n", "WordsPerMinute=100\n"]
             file.writelines(defaults)
             file.close()
         finally:
             print("Words Per Minute!\n")
+            print("\nUse <Escape> or <F11> to manipulate the window's fullscreen properties!\n\n")
             print("0. Use Default Config?")
             print("1. Make Custom Config?")
             choice = int(input("Enter Choice (0/1): "))
@@ -35,7 +37,10 @@ class configuration():
                 config.close()
             else:
                 self.FontSize, self.WPM = self.UserConfiguration()
-
+"""
+        print("Words Per Minute!\n")
+        print("\nUse <Escape> or <F11> to manipulate the window's fullscreen properties!\n\n")
+        self.FontSize, self.WPM = self.UserConfiguration()
         try:
             para = open("para.txt", "r")
             if not para:
@@ -53,24 +58,25 @@ class configuration():
             os.startfile("para.txt")
             print("Write your words in para.txt\n\n")
             para.close()
-        print("Use <Escape>, <F11> to manipulate the window's fullscreen properties!\n")
 
     def UserConfiguration(self):
-
-        now = datetime.now()
+        self.FontSize = int(input("Enter Font size (100 recommended): "))
+        self.WPM = int(input("Enter Words per Minute (Higher the number, faster the words display): "))
+        return (self.FontSize, self.WPM)
+        # now = datetime.now()
         # datetime object containing current date and time
 
         # dd_mm_YY__H_M_S
-        dt_string = now.strftime("%d_%m_%Y__%H_%M_%S")
-        self.FontSize = int(input("Enter Font size: "))
-        self.WPM = int(input("Enter Words per Minute: "))
+        # dt_string = now.strftime("%d_%m_%Y__%H_%M_%S")
+
+        '''
         usrCFGfile = str("config_" + dt_string + ".cfg")
         userconfig = open(usrCFGfile, "w")
         userconfig.writelines("FontSize=" + str(self.FontSize))
         userconfig.writelines("\nWordsPerMinute=" + str(self.WPM))
         print("User config saved in " + usrCFGfile)
         userconfig.close()
-        return (self.FontSize, self.WPM)
+        '''
 
     def GetFontSize(self):
         return int(self.FontSize)
