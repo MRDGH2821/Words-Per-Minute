@@ -62,18 +62,18 @@ class configuration():
 
         # dd_mm_YY__H_M_S
         dt_string = now.strftime("%d_%m_%Y__%H_%M_%S")
-        FontSize = int(input("Enter Font size: "))
-        WPM = int(input("Enter Words per Minute: "))
+        self.FontSize = int(input("Enter Font size: "))
+        self.WPM = int(input("Enter Words per Minute: "))
         usrCFGfile = str("config_" + dt_string + ".cfg")
         userconfig = open(usrCFGfile, "w")
-        userconfig.writelines("FontSize=" + str(FontSize))
-        userconfig.writelines("WordsPerMinute=" + str(WPM))
+        userconfig.writelines("FontSize=" + str(self.FontSize))
+        userconfig.writelines("\nWordsPerMinute=" + str(self.WPM))
         print("User config saved in " + usrCFGfile)
         userconfig.close()
-        return (FontSize, WPM)
+        return (self.FontSize, self.WPM)
 
     def GetFontSize(self):
-        return self.FontSize
+        return int(self.FontSize)
 
     def getWPM(self):
         return int(self.WPM)
