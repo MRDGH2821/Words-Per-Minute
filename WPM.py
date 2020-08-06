@@ -109,9 +109,27 @@ w = tk.StringVar()
 labelFlash = tk.Label(root, bg='Black', width=root.winfo_screenwidth(), height=root.winfo_screenheight(),
                       anchor="center", text="Sample", fg="White", font="Times " + str(cofg.GetFontSize()), textvariable=w)
 labelFlash.pack()
+indx = 0
+
+
+def update():
+    global indx
+    if indx >= len(words):
+        indx = 0
+    w.set(words[indx])
+    labelFlash.config(text=words[indx])
+    indx += 1
+    root.after(500, update)
+
+
+update()
+root.mainloop()
+
+'''
 for word in words:
     w.set(word)
     labelFlash.config(text=word)
+    '''
 """
     labelFlash["text"] = word
     labelFlash.after(int(WPS))  # labelFlash.update_idletasks())
@@ -139,4 +157,3 @@ canvasFlash.itemconfigure(wordID, text=nextword())
 canvasFlash.after(WPS, nextword())
 # sleep(WPS)
 '''
-root.mainloop()
