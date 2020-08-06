@@ -1,46 +1,14 @@
 import os
 import tkinter as tk
-from datetime import datetime
-from time import sleep
 
 
 class configuration():
-
     def __init__(self):
         self.FontSize = 0
-        self.WPM = 0
-        """
-        try:
-            config = open("default.cfg", "r")
-            if config:
-                self.FontSize = config.readline().split("=")[1][:-2]
-                self.WPM = config.readline().split("=")[1][:-2]
-            else:
-                raise FileNotFoundError
-        except FileNotFoundError:
-            print("Generating default config...")
-            sleep(1)
-            file = open("default.cfg", "w")
-            defaults = ["FontSize=1000\n", "WordsPerMinute=100\n"]
-            file.writelines(defaults)
-            file.close()
-        finally:
-            print("Words Per Minute!\n")
-            print("\nUse <Escape> or <F11> to manipulate the window's fullscreen properties!\n\n")
-            print("0. Use Default Config?")
-            print("1. Make Custom Config?")
-            choice = int(input("Enter Choice (0/1): "))
-            if not choice:
-                config = open("default.cfg", "r")
-                self.FontSize = config.readline().split("=")[1][:-2]
-                self.WPM = config.readline().split("=")[1][:-2]
-                config.close()
-            else:
-                self.FontSize, self.WPM = self.UserConfiguration()
-"""
+        self.WPS = 0
         print("Words Per Minute!\n")
         print("\nUse <Escape> or <F11> to manipulate the window's fullscreen properties!\n\n")
-        self.FontSize, self.WPM = self.UserConfiguration()
+        self.FontSize, self.WPS = self.UserConfiguration()
         try:
             para = open("para.txt", "r")
             if not para:
@@ -61,51 +29,33 @@ class configuration():
 
     def UserConfiguration(self):
         self.FontSize = int(input("Enter Font size (100 recommended): "))
-        self.WPM = int(input("Enter Words per Minute (Higher the number, faster the words display): "))
-        return (self.FontSize, self.WPM)
-        # now = datetime.now()
-        # datetime object containing current date and time
-
-        # dd_mm_YY__H_M_S
-        # dt_string = now.strftime("%d_%m_%Y__%H_%M_%S")
-
-        '''
-        usrCFGfile = str("config_" + dt_string + ".cfg")
-        userconfig = open(usrCFGfile, "w")
-        userconfig.writelines("FontSize=" + str(self.FontSize))
-        userconfig.writelines("\nWordsPerMinute=" + str(self.WPM))
-        print("User config saved in " + usrCFGfile)
-        userconfig.close()
-        '''
+        self.WPS = int(input("Enter Words per Second (Higher the number, faster the words display): "))
+        return (self.FontSize, self.WPS)
 
     def GetFontSize(self):
         return int(self.FontSize)
 
-    def getWPM(self):
-        return int(self.WPM)
+    def getWPS(self):
+        return int(self.WPS)
 
 
 # This code snippet now flashes the words per minute.
-
 cofg = configuration()
 para = open("para.txt", "r")
 words = [str(x) for x in para.read().split()]
 
 
 def Miliseconds_per_word():
-    return 60000 / cofg.getWPM()
+    return 1000 / cofg.getWPS()
 
 
 MPW = Miliseconds_per_word()
-
 root = tk.Tk()
 root.attributes("-fullscreen", True)
 root.bind("<F11>", lambda event: root.attributes("-fullscreen", not root.attributes("-fullscreen")))
 root.bind("<Escape>", lambda event: root.attributes("-fullscreen", False))
 root.bind("<F1>", lambda event: os.exit(0))
-
 w = tk.StringVar()
-
 labelFlash = tk.Label(root, bg='Black', width=root.winfo_screenwidth(), height=root.winfo_screenheight(),
                       anchor="center", text="Sample", fg="White", font="Times " + str(cofg.GetFontSize()), textvariable=w)
 labelFlash.pack()
