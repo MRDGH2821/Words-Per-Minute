@@ -1,5 +1,6 @@
 # Word Per Minute!
- This program lets you flash a paragraph, word by word; in full screen!
+
+This program lets you display a paragraph, word by word; in full screen!
 
 In simple words -
 
