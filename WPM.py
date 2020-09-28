@@ -59,7 +59,7 @@ class configuration():
 
 # This code snippet now flashes the words per minute.
 cofg = configuration()
-input("Before proceeding, remember:\n - <Escape> will close the program\n - <F1> will force fully exit fullscreen\n - <F11> will toggle between fullscreen & windowed mode.\n\n**Keys will work after mouse click**\n\n\nPress enter to continue!")
+input("\n\nBefore proceeding, remember:\n - <Escape> will close the program\n - <F1> will force fully exit fullscreen\n - <F11> will toggle between fullscreen & windowed mode.\n\n**Keys will work after mouse click**\n\n\nPress enter to continue!")
 para = open("para.txt", "r")
 words = [str(x) for x in para.read().split()]
 
