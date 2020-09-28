@@ -16,7 +16,7 @@ second word <some delay, second word invisible>
 
 So on...
 
-
+Check out how it works [here](https://youtu.be/LsUXx_7NaLo)
 
 ### References
 
@@ -30,4 +30,3 @@ So on...
 - [Canvas Text update - Python3 Tkinter](https://stackoverflow.com/questions/52792254/canvas-text-update-python3-tkinter)
 - [Add a text to canvas in Tkinter (Python)](https://youtu.be/jxUjqr4dMpc)
 - [How to Update text in Tkinter Label/Canvas widget using for loop?](https://stackoverflow.com/questions/63270650/how-to-update-text-in-tkinter-label-canvas-widget-using-for-loop)
-
