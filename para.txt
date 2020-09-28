@@ -1,2 +1,7 @@
-Hello World!
-This is a demo text.
+Hello there!
+This is Words Per Minute program!
+It works by flashing words in immediate succession.
+
+1st-word
+2nd-word
+3rd-word
