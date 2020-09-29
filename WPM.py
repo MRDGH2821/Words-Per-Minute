@@ -6,7 +6,7 @@ class configuration():
     def __init__(self):
         self.FontSize = 0
         self.WPS = 0
-        print("Words Per Minute!\n")
+        print("Words Per Minute! v1.0.1\n")
         print("\nUse <Escape>, <F11> or <F1> to manipulate the window's fullscreen properties!\n\n")
         self.FontSize, self.WPS = self.UserConfiguration()
         try:
