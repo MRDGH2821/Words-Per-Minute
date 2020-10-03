@@ -1,4 +1,5 @@
 # Word Per Minute!
+
 This program lets you display a paragraph, word by word; in full screen!
 
 In simple words -
@@ -17,6 +18,8 @@ second word <some delay then second word invisible>
 So on...
 
 Check out how it works [here](https://youtu.be/LsUXx_7NaLo)
+
+Download the latest version [here!](https://github.com/MRDGH2821/Words-Per-Minute-/releases)
 
 ### References
 
