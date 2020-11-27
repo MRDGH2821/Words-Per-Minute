@@ -1,0 +1,12 @@
+Python:
+  beautifiers:
+    - Black
+    - YAPF
+  indent_size: 4
+  indent_style: !<tag:yaml.org,2002:js/undefined> ''
+Markdown:
+  beautifiers:
+    - Prettier
+  pragma_insert: !<tag:yaml.org,2002:js/undefined> ''
+  pragma_require: !<tag:yaml.org,2002:js/undefined> ''
+  wrap_prose: !<tag:yaml.org,2002:js/undefined> ''
