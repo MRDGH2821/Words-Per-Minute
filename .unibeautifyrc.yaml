@@ -2,11 +2,12 @@ Python:
   beautifiers:
     - Black
     - YAPF
+  wrap_line_length: 0
   indent_size: 4
-  indent_style: !<tag:yaml.org,2002:js/undefined> ''
+  indent_style: space
 Markdown:
   beautifiers:
     - Prettier
-  pragma_insert: !<tag:yaml.org,2002:js/undefined> ''
-  pragma_require: !<tag:yaml.org,2002:js/undefined> ''
-  wrap_prose: !<tag:yaml.org,2002:js/undefined> ''
+  pragma_insert: false
+  pragma_require: false
+  wrap_prose: never
