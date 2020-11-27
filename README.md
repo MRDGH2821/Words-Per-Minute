@@ -4,8 +4,7 @@ This program lets you display a paragraph, word by word; in full screen!
 
 In simple words -
 
-User inputs paragraph.
-User inputs parameters like Speed of words being displayed & Font Size
+User inputs paragraph. User inputs parameters like Speed of words being displayed & Font Size
 
 The program will display the words present in paragraph according to the speed set by user.
 

@@ -8,12 +8,14 @@ import tkinter as tk
 from sys import exit
 
 
-class configuration():
+class configuration:
     def __init__(self):
         self.FontSize = 0
         self.WPS = 0
         print("Words Per Minute! v1.0.1\n")
-        print("\nUse <Escape>, <F11> or <F1> to manipulate the window's fullscreen properties!\n\n")
+        print(
+            "\nUse <Escape>, <F11> or <F1> to manipulate the window's fullscreen properties!\n\n"
+        )
         self.FontSize, self.WPS = self.UserConfiguration()
         try:
             para = open("para.txt", "r")
@@ -23,7 +25,9 @@ class configuration():
             else:
                 choice = 0
                 choice = int(
-                    input("\n0. Use existing para?\n1. Make new para? \nEnter choice (0 Default): "))
+                    input(
+                        "\n0. Use existing para?\n1. Make new para? \nEnter choice (0 Default): "
+                    ))
                 if choice:
                     raise FileNotFoundError
                 else:
@@ -31,7 +35,8 @@ class configuration():
         except FileNotFoundError:
             para = open("para.txt", "w")
             print(
-                "Enter/Paste your content. To save it - <Ctrl + D + Enter> or <Ctrl + Z + Enter> ( Windows ).")
+                "Enter/Paste your content. To save it - <Ctrl + D + Enter> or <Ctrl + Z + Enter> ( Windows )."
+            )
             while True:
                 try:
                     line = input()
@@ -50,9 +55,13 @@ class configuration():
         except ValueError:
             self.FontSize = 100
         try:
-            print("\nYou might be Familier with Words per minute.\nThis program internally uses Words per Second convention.\nPlease Divide WPM by 60 and enter the value here.\nDefault Value is 2 WPS, i.e. 120 WPM.\n")
+            print(
+                "\nYou might be Familier with Words per minute.\nThis program internally uses Words per Second convention.\nPlease Divide WPM by 60 and enter the value here.\nDefault Value is 2 WPS, i.e. 120 WPM.\n"
+            )
             self.WPS = float(
-                input("Enter Words per Second (Higher the number, faster the words display): "))
+                input(
+                    "Enter Words per Second (Higher the number, faster the words display): "
+                ))
         except ValueError:
             self.WPS = 2
 
@@ -67,7 +76,9 @@ class configuration():
 
 # This code snippet now flashes the words per minute.
 cofg = configuration()
-input("\n\nBefore proceeding, remember:\n - <Escape> will close the program\n - <F1> will force fully exit fullscreen\n - <F11> will toggle between fullscreen & windowed mode.\n\n**Keys will work after mouse click**\n\n\nPress enter to continue!")
+input(
+    "\n\nBefore proceeding, remember:\n - <Escape> will close the program\n - <F1> will force fully exit fullscreen\n - <F11> will toggle between fullscreen & windowed mode.\n\n**Keys will work after mouse click**\n\n\nPress enter to continue!"
+)
 para = open("para.txt", "r")
 words = [str(x) for x in para.read().split()]
 
@@ -79,13 +90,25 @@ def Miliseconds_per_word():
 MPW = Miliseconds_per_word()
 root = tk.Tk()
 root.attributes("-fullscreen", True)
-root.bind("<F11>", lambda event: root.attributes(
-    "-fullscreen", not root.attributes("-fullscreen")))
+root.bind(
+    "<F11>",
+    lambda event: root.attributes("-fullscreen", not root.attributes(
+        "-fullscreen")),
+)
 root.bind("<F1>", lambda event: root.attributes("-fullscreen", False))
 root.bind("<Escape>", lambda event: exit())
 w = tk.StringVar()
-labelFlash = tk.Label(root, bg='Black', width=root.winfo_screenwidth(), height=root.winfo_screenheight(),
-                      anchor="center", text="Sample", fg="White", font="Times " + str(cofg.GetFontSize()), textvariable=w)
+labelFlash = tk.Label(
+    root,
+    bg="Black",
+    width=root.winfo_screenwidth(),
+    height=root.winfo_screenheight(),
+    anchor="center",
+    text="Sample",
+    fg="White",
+    font="Times " + str(cofg.GetFontSize()),
+    textvariable=w,
+)
 labelFlash.pack()
 indx = 0
 
