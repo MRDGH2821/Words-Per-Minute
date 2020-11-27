@@ -1,3 +1,9 @@
+"""Words per minute.
+
+This program lets you display a paragraph, word by word; in full screen!
+Version - 1.0.1
+"""
+
 import tkinter as tk
 from sys import exit
 
@@ -24,7 +30,8 @@ class configuration():
                     para.close()
         except FileNotFoundError:
             para = open("para.txt", "w")
-            print("Enter/Paste your content. To save it - <Ctrl + D + Enter> or <Ctrl + Z + Enter> ( Windows ).")
+            print(
+                "Enter/Paste your content. To save it - <Ctrl + D + Enter> or <Ctrl + Z + Enter> ( Windows ).")
             while True:
                 try:
                     line = input()
@@ -44,7 +51,8 @@ class configuration():
             self.FontSize = 100
         try:
             print("\nYou might be Familier with Words per minute.\nThis program internally uses Words per Second convention.\nPlease Divide WPM by 60 and enter the value here.\nDefault Value is 2 WPS, i.e. 120 WPM.\n")
-            self.WPS = float(input("Enter Words per Second (Higher the number, faster the words display): "))
+            self.WPS = float(
+                input("Enter Words per Second (Higher the number, faster the words display): "))
         except ValueError:
             self.WPS = 2
 
@@ -71,7 +79,8 @@ def Miliseconds_per_word():
 MPW = Miliseconds_per_word()
 root = tk.Tk()
 root.attributes("-fullscreen", True)
-root.bind("<F11>", lambda event: root.attributes("-fullscreen", not root.attributes("-fullscreen")))
+root.bind("<F11>", lambda event: root.attributes(
+    "-fullscreen", not root.attributes("-fullscreen")))
 root.bind("<F1>", lambda event: root.attributes("-fullscreen", False))
 root.bind("<Escape>", lambda event: exit())
 w = tk.StringVar()

@@ -21,6 +21,10 @@ Check out how it works [here](https://youtu.be/LsUXx_7NaLo)
 
 Download the latest version [here!](https://github.com/MRDGH2821/Words-Per-Minute-/releases)
 
+## Requirements
+
+Check [here](requirements.txt)
+
 ### References
 
 - [How to Create Full Screen Window in Tkinter](https://www.delftstack.com/howto/python-tkinter/how-to-create-full-screen-window-in-tkinter/)
