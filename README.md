@@ -10,9 +10,9 @@ The program will display the words present in paragraph according to the speed s
 
 It will display something like this -
 
-first word <some delay then first word invisible>
+first word (some delay then first word invisible)
 
-second word <some delay then second word invisible>
+second word (some delay then second word invisible)
 
 So on...
 
