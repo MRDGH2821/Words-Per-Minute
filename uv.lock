@@ -14,7 +14,7 @@ wheels = [
 [[package]]
 name = "words-per-minute"
 version = "1.0.1"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "pysimplegui" },
 ]
