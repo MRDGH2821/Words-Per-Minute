@@ -27,7 +27,8 @@ class configuration:
                 choice = int(
                     input(
                         "\n0. Use existing para?\n1. Make new para? \nEnter choice (0 Default): "
-                    ))
+                    )
+                )
                 if choice:
                     raise FileNotFoundError
                 else:
@@ -61,7 +62,8 @@ class configuration:
             self.WPS = float(
                 input(
                     "Enter Words per Second (Higher the number, faster the words display): "
-                ))
+                )
+            )
         except ValueError:
             self.WPS = 2
 
@@ -92,8 +94,7 @@ root = tk.Tk()
 root.attributes("-fullscreen", True)
 root.bind(
     "<F11>",
-    lambda event: root.attributes("-fullscreen", not root.attributes(
-        "-fullscreen")),
+    lambda event: root.attributes("-fullscreen", not root.attributes("-fullscreen")),
 )
 root.bind("<F1>", lambda event: root.attributes("-fullscreen", False))
 root.bind("<Escape>", lambda event: exit())
