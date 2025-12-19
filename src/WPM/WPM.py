@@ -76,53 +76,57 @@ class configuration:
         return float(self.WPS)
 
 
-# This code snippet now flashes the words per minute.
-cofg = configuration()
-input(
-    "\n\nBefore proceeding, remember:\n - <Escape> will close the program\n - <F1> will force fully exit fullscreen\n - <F11> will toggle between fullscreen & windowed mode.\n\n**Keys will work after mouse click**\n\n\nPress enter to continue!"
-)
-para = open("para.txt", "r")
-words = [str(x) for x in para.read().split()]
+def main():
+    """Main entry point for the Words Per Minute application."""
+    # This code snippet now flashes the words per minute.
+    cofg = configuration()
+    input(
+        "\n\nBefore proceeding, remember:\n - <Escape> will close the program\n - <F1> will force fully exit fullscreen\n - <F11> will toggle between fullscreen & windowed mode.\n\n**Keys will work after mouse click**\n\n\nPress enter to continue!"
+    )
+    para = open("para.txt", "r")
+    words = [str(x) for x in para.read().split()]
+
+    def Miliseconds_per_word():
+        return 1000 / cofg.getWPS()
+
+    MPW = Miliseconds_per_word()
+    root = tk.Tk()
+    root.attributes("-fullscreen", True)
+    root.bind(
+        "<F11>",
+        lambda event: root.attributes(
+            "-fullscreen", not root.attributes("-fullscreen")
+        ),
+    )
+    root.bind("<F1>", lambda event: root.attributes("-fullscreen", False))
+    root.bind("<Escape>", lambda event: exit())
+    w = tk.StringVar()
+    labelFlash = tk.Label(
+        root,
+        bg="Black",
+        width=root.winfo_screenwidth(),
+        height=root.winfo_screenheight(),
+        anchor="center",
+        text="Sample",
+        fg="White",
+        font="Times " + str(cofg.GetFontSize()),
+        textvariable=w,
+    )
+    labelFlash.pack()
+    indx = 0
+
+    def update():
+        nonlocal indx
+        if indx >= len(words):
+            indx = 0
+        w.set(words[indx])
+        labelFlash.config(text=words[indx])
+        indx += 1
+        root.after(int(MPW), update)
+
+    update()
+    root.mainloop()
 
 
-def Miliseconds_per_word():
-    return 1000 / cofg.getWPS()
-
-
-MPW = Miliseconds_per_word()
-root = tk.Tk()
-root.attributes("-fullscreen", True)
-root.bind(
-    "<F11>",
-    lambda event: root.attributes("-fullscreen", not root.attributes("-fullscreen")),
-)
-root.bind("<F1>", lambda event: root.attributes("-fullscreen", False))
-root.bind("<Escape>", lambda event: exit())
-w = tk.StringVar()
-labelFlash = tk.Label(
-    root,
-    bg="Black",
-    width=root.winfo_screenwidth(),
-    height=root.winfo_screenheight(),
-    anchor="center",
-    text="Sample",
-    fg="White",
-    font="Times " + str(cofg.GetFontSize()),
-    textvariable=w,
-)
-labelFlash.pack()
-indx = 0
-
-
-def update():
-    global indx
-    if indx >= len(words):
-        indx = 0
-    w.set(words[indx])
-    labelFlash.config(text=words[indx])
-    indx += 1
-    root.after(int(MPW), update)
-
-
-update()
-root.mainloop()
+if __name__ == "__main__":
+    main()
