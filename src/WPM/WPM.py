@@ -57,7 +57,7 @@ class configuration:
             self.FontSize = 100
         try:
             print(
-                "\nYou might be Familier with Words per minute.\nThis program internally uses Words per Second convention.\nPlease Divide WPM by 60 and enter the value here.\nDefault Value is 2 WPS, i.e. 120 WPM.\n"
+                "\nYou might be Familiar with Words per minute.\nThis program internally uses Words per Second convention.\nPlease Divide WPM by 60 and enter the value here.\nDefault Value is 2 WPS, i.e. 120 WPM.\n"
             )
             self.WPS = float(
                 input(
