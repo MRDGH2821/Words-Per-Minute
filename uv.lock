@@ -3,21 +3,6 @@ revision = 3
 requires-python = ">=3.12"
 
 [[package]]
-name = "pysimplegui"
-version = "5.0.8.3"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/b8/ee/c7015ee3d5723aec4335608450a5efb96f53953d65d7acd6227b389e905d/pysimplegui-5.0.8.3.tar.gz", hash = "sha256:4c77436f527b6ee5c6e097a07028c83d85dc2513bcb51b78c9bfcc1b55123bd1", size = 15686, upload-time = "2025-04-02T13:25:19.096Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/4d/d9/3de4b7ca71a7779e4f4a160088621b072a29d9b814a7fa9b5411571f4849/pysimplegui-5.0.8.3-py3-none-any.whl", hash = "sha256:67e35ad6dd76e9369051261114f4711308e87815a0488f7fa28b37c29a546f8b", size = 16347, upload-time = "2025-04-02T13:25:17.973Z" },
-]
-
-[[package]]
 name = "words-per-minute"
 version = "1.0.1"
 source = { editable = "." }
-dependencies = [
-    { name = "pysimplegui" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "pysimplegui", specifier = ">=5.0.8.3" }]

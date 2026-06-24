@@ -18,7 +18,7 @@ classifiers = [
   "Topic :: Education",
   "Topic :: Utilities",
 ]
-dependencies = ["pysimplegui>=5.0.8.3"]
+dependencies = []
 
 [project.urls]
 Homepage = "https://github.com/yourusername/Words-Per-Minute"
@@ -26,10 +26,10 @@ Issues = "https://github.com/yourusername/Words-Per-Minute/issues"
 Repository = "https://github.com/yourusername/Words-Per-Minute"
 
 [project.scripts]
-wpm = "WPM.WPM:main"
+wpm = "WPM.app:main"
 
 [project.gui-scripts]
-wpm-gui = "WPM.WPM:main"
+wpm-gui = "WPM.app:main"
 
 [build-system]
 requires = ["hatchling"]
